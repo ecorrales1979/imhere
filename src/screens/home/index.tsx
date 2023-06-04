@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { ScrollView, Text, TextInput, View } from 'react-native';
+import { FlatList, Text, TextInput, View } from 'react-native';
 
 import { styles } from './styles'
 import Button from '../../components/button';
@@ -31,15 +31,17 @@ export default function Home() {
         <Button label="+" type="add" onPress={handleAddParticipant} />
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {participants.map(participant => (
+      <FlatList
+        data={participants}
+        keyExtractor={item => `participant_${item}`}
+        renderItem={({ item }) => (
           <Participant
-            key={`participant_${participant}`}
-            name={participant}
-            onRemove={() => handleRemoveParticipant(participant)}
+            name={item}
+            onRemove={() => handleRemoveParticipant(item)}
           />
-        ))}
-      </ScrollView>
+        )}
+        showsVerticalScrollIndicator={false}
+      />
 
       <StatusBar style="auto" />
     </View>
