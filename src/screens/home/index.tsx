@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FlatList, Text, TextInput, View } from 'react-native';
 
 import { styles } from './styles'
@@ -5,10 +6,13 @@ import Button from '../../components/button';
 import Participant from '../../components/participant';
 
 export default function Home() {
-  const participants: string[] = [];
+  const [participants, setParticipants] = useState<string[]>([]);
+  const [newParticipant, setNewParticipant] = useState('');
 
   const handleAddParticipant = () => {
     console.log('You pressed the Add Participant Button')
+    setParticipants(oldState => ([...oldState, newParticipant]))
+    setNewParticipant('')
   }
 
   const handleRemoveParticipant = (name: string) => {
@@ -23,8 +27,10 @@ export default function Home() {
       <View style={styles.form}>
         <TextInput
           style={styles.input}
-          placeholder='Participant name'
+          placeholder="Participant name"
           placeholderTextColor="#6B6B6B"
+          value={newParticipant}
+          onChangeText={setNewParticipant}
         />
 
         <Button label="+" type="add" onPress={handleAddParticipant} />
