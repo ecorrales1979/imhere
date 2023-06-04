@@ -31,7 +31,7 @@ export default function Home() {
         <Button label="+" type="add" onPress={handleAddParticipant} />
       </View>
 
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {participants.map(participant => (
           <Participant
             key={`participant_${participant}`}
