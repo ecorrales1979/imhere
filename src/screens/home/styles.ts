@@ -32,4 +32,8 @@ export const styles = StyleSheet.create({
     padding: 16,
     fontSize: 16,
   },
+  emptyListText: {
+    color: '#FDFCFE',
+    fontSize: 16,
+  },
 });

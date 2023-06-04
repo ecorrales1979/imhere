@@ -6,7 +6,7 @@ import Button from '../../components/button';
 import Participant from '../../components/participant';
 
 export default function Home() {
-  const participants = ['John Doe', 'Jane Doe', 'Franklin', 'George', 'Adams', 'Anna', 'Caroline', 'Isabelle'];
+  const participants: string[] = [];
 
   const handleAddParticipant = () => {
     console.log('You pressed the Add Participant Button')
@@ -41,6 +41,11 @@ export default function Home() {
           />
         )}
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <Text style={styles.emptyListText}>
+            There are no participants for this event yet. Start adding participants.
+          </Text>
+        )}
       />
 
       <StatusBar style="auto" />
