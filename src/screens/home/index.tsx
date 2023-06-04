@@ -12,8 +12,8 @@ export default function Home() {
   const handleAddParticipant = () => {
     if (participants.includes(newParticipant)) {
       return Alert.alert(
-        "Participant name already exists",
-        "There is already a participant with that name registered in the event"
+        'Participant name already exists',
+        'There is already a participant with that name registered in the event',
       );
     }
 
@@ -22,7 +22,20 @@ export default function Home() {
   }
 
   const handleRemoveParticipant = (name: string) => {
-    console.log(`You are removing participant ${name}`)
+    Alert.alert(
+      'Remove participant',
+      `Are you sure you want to remove participant ${name}?`,
+      [
+        {
+          text: 'Yes',
+          onPress: () => console.log(`You are removing participant ${name}`),
+        },
+        {
+          text: 'Não',
+          style: 'cancel',
+        }
+      ]
+    )
   }
 
   return (
