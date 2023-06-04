@@ -22,13 +22,16 @@ export default function Home() {
   }
 
   const handleRemoveParticipant = (name: string) => {
+    const updateParticipants = () =>
+      setParticipants(old => old.filter(participant => participant !== name));
+
     Alert.alert(
       'Remove participant',
       `Are you sure you want to remove participant ${name}?`,
       [
         {
           text: 'Yes',
-          onPress: () => console.log(`You are removing participant ${name}`),
+          onPress: updateParticipants,
         },
         {
           text: 'Não',
