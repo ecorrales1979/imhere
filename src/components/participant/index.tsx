@@ -1,5 +1,7 @@
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
+
 import { styles } from './styles';
+import Button from '../button';
 
 export default function Participant() {
   const handleRemoveParticipant = () => {
@@ -10,9 +12,7 @@ export default function Participant() {
     <View style={styles.container}>
       <Text style={styles.participantName}>Participant name</Text>
 
-      <TouchableOpacity style={styles.button} activeOpacity={0.7} onPress={handleRemoveParticipant}>
-        <Text style={styles.buttonText}>-</Text>
-      </TouchableOpacity>
+      <Button label="-" type="remove" onPress={handleRemoveParticipant} />
     </View>
   );
 }

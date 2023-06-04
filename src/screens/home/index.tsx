@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
 
 import { styles } from './styles'
+import Button from '../../components/button';
 import Participant from '../../components/participant';
 
 export default function Home() {
@@ -21,9 +22,7 @@ export default function Home() {
           placeholderTextColor="#6B6B6B"
         />
 
-        <TouchableOpacity style={styles.button} activeOpacity={0.7} onPress={handleAddParticipant}>
-          <Text style={styles.buttonText}>+</Text>
-        </TouchableOpacity>
+        <Button label="+" type="add" onPress={handleAddParticipant} />
       </View>
 
       <Participant />

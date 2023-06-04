@@ -16,16 +16,4 @@ export const styles = StyleSheet.create({
     marginLeft: 16,
     marginRight: 16,
   },
-  button: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 56,
-    height: 56,
-    borderRadius: 5,
-    backgroundColor: '#E23C44',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 24,
-  },
 });
