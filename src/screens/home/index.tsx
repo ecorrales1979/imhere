@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, TextInput, View } from 'react-native';
+import { ScrollView, Text, TextInput, View } from 'react-native';
 
 import { styles } from './styles'
 import Button from '../../components/button';
 import Participant from '../../components/participant';
 
 export default function Home() {
-  const participants = ['John Doe', 'Jane Doe'];
+  const participants = ['John Doe', 'Jane Doe', 'Franklin', 'George', 'Adams', 'Anna', 'Caroline', 'Isabelle'];
 
   const handleAddParticipant = () => {
     console.log('You pressed the Add Participant Button')
@@ -31,13 +31,15 @@ export default function Home() {
         <Button label="+" type="add" onPress={handleAddParticipant} />
       </View>
 
-      {participants.map(participant => (
-        <Participant
-          key={`participant_${participant}`}
-          name={participant}
-          onRemove={() => handleRemoveParticipant(participant)}
-        />
-      ))}
+      <ScrollView>
+        {participants.map(participant => (
+          <Participant
+            key={`participant_${participant}`}
+            name={participant}
+            onRemove={() => handleRemoveParticipant(participant)}
+          />
+        ))}
+      </ScrollView>
 
       <StatusBar style="auto" />
     </View>
