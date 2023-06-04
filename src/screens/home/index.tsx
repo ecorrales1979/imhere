@@ -10,6 +10,10 @@ export default function Home() {
     console.log('You pressed the Add Participant Button')
   }
 
+  const handleRemoveParticipant = (name: string) => {
+    console.log(`You are removing participant ${name}`)
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>Event name</Text>
@@ -25,7 +29,8 @@ export default function Home() {
         <Button label="+" type="add" onPress={handleAddParticipant} />
       </View>
 
-      <Participant />
+      <Participant name="John Doe" onRemove={() => handleRemoveParticipant('John Doe')} />
+      <Participant name="Jane Doe" onRemove={() => handleRemoveParticipant('Jane Doe')} />
 
       <StatusBar style="auto" />
     </View>

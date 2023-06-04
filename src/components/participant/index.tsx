@@ -3,16 +3,17 @@ import { Text, View } from 'react-native';
 import { styles } from './styles';
 import Button from '../button';
 
-export default function Participant() {
-  const handleRemoveParticipant = () => {
-    console.log('You pressed the Remove Participant Button')
-  }
+interface ParticipantProps {
+  name: string;
+  onRemove: () => void;
+}
 
+export default function Participant({ name, onRemove }: ParticipantProps) {
   return (
     <View style={styles.container}>
-      <Text style={styles.participantName}>Participant name</Text>
+      <Text style={styles.participantName}>{name}</Text>
 
-      <Button label="-" type="remove" onPress={handleRemoveParticipant} />
+      <Button label="-" type="remove" onPress={onRemove} />
     </View>
   );
 }
