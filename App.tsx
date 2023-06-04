@@ -1,7 +1,17 @@
+import { StatusBar } from 'expo-status-bar';
+
 import Home from './src/screens/home';
 
 export default function App() {
   return (
-    <Home />
+    <>
+      <Home />
+
+      <StatusBar
+        style="light"
+        translucent
+        backgroundColor='transparent'
+      />
+    </>
   );
 }
