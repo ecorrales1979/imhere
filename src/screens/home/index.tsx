@@ -13,15 +13,17 @@ export default function Home() {
       <Text style={styles.eventName}>Event name</Text>
       <Text style={styles.eventDate}>Friday, November 4th, 2022</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder='Participant name'
-        placeholderTextColor="#6B6B6B"
-      />
+      <View style={styles.form}>
+        <TextInput
+          style={styles.input}
+          placeholder='Participant name'
+          placeholderTextColor="#6B6B6B"
+        />
 
-      <TouchableOpacity style={styles.button} activeOpacity={0.7} onPress={handleAddParticipant}>
-        <Text style={styles.buttonText}>+</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.button} activeOpacity={0.7} onPress={handleAddParticipant}>
+          <Text style={styles.buttonText}>+</Text>
+        </TouchableOpacity>
+      </View>
 
       <StatusBar style="auto" />
     </View>
