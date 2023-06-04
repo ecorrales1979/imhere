@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { styles } from './styles'
+import Participant from '../../components/participant';
 
 export default function Home() {
   const handleAddParticipant = () => {
@@ -24,6 +25,8 @@ export default function Home() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
+
+      <Participant />
 
       <StatusBar style="auto" />
     </View>
