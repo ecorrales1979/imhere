@@ -6,6 +6,8 @@ import Button from '../../components/button';
 import Participant from '../../components/participant';
 
 export default function Home() {
+  const participants = ['John Doe', 'Jane Doe'];
+
   const handleAddParticipant = () => {
     console.log('You pressed the Add Participant Button')
   }
@@ -29,8 +31,13 @@ export default function Home() {
         <Button label="+" type="add" onPress={handleAddParticipant} />
       </View>
 
-      <Participant name="John Doe" onRemove={() => handleRemoveParticipant('John Doe')} />
-      <Participant name="Jane Doe" onRemove={() => handleRemoveParticipant('Jane Doe')} />
+      {participants.map(participant => (
+        <Participant
+          key={`participant_${participant}`}
+          name={participant}
+          onRemove={() => handleRemoveParticipant(participant)}
+        />
+      ))}
 
       <StatusBar style="auto" />
     </View>
