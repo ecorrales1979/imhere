@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FlatList, Text, TextInput, View } from 'react-native';
+import { Alert, FlatList, Text, TextInput, View } from 'react-native';
 
 import { styles } from './styles'
 import Button from '../../components/button';
@@ -10,7 +10,13 @@ export default function Home() {
   const [newParticipant, setNewParticipant] = useState('');
 
   const handleAddParticipant = () => {
-    console.log('You pressed the Add Participant Button')
+    if (participants.includes(newParticipant)) {
+      return Alert.alert(
+        "Participant name already exists",
+        "There is already a participant with that name registered in the event"
+      );
+    }
+
     setParticipants(oldState => ([...oldState, newParticipant]))
     setNewParticipant('')
   }
